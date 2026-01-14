@@ -26,7 +26,7 @@ HunyuanOCR 是腾讯推出的多模态 OCR 模型，具备强大的图文理解�
    cd HunyuanOCR_Train
    ```
 2. **修改官方的HunYuanVLForConditionalGeneration 代码**
-### 官方的代码forward中没有传入vit图片的特征，需要修改
+   ### 官方的代码forward中没有传入vit图片的特征，需要修改
    ```
    class HunYuanVLForConditionalGeneration(HunYuanVLPreTrainedModel, GenerationMixin):
       _tied_weights_keys = ["lm_head.weight"]
