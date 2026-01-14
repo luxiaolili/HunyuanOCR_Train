@@ -14,8 +14,8 @@ def create_sft_collate_fn(processor):
     tokenizer = processor.tokenizer
     IGNORE = -100
 
-    user_id = tokenizer.convert_tokens_to_ids("<| hy_User |")
-    assistant_id = tokenizer.convert_tokens_to_ids("<| hy_Assistant |")
+    user_id = tokenizer.convert_tokens_to_ids("<| hy_User |>")
+    assistant_id = tokenizer.convert_tokens_to_ids("<| hy_Assistant |>")
 
     def collate_fn(batch_samples):
         batch_input_ids = []
@@ -26,7 +26,7 @@ def create_sft_collate_fn(processor):
 
         for sample in batch_samples:
             messages = json.loads(sample["messages_json"])
-            text = processor.apply_chat_template(messages, tokenizer=False, add_generation_prompt=False)
+            text = processor.apply_chat_template(messages, tokenize=False, add_generation_prompt=False)
             
             image_path = sample["images"]
             if not os.path.exists(image_path):
