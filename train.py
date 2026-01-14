@@ -76,7 +76,7 @@ def create_sft_collate_fn(processor):
             if user_id in ids and assistant_id in ids:
                 user_pos = ids.index(user_id)
                 assistant_pos = len(ids) -1 - ids[::-1].index(assistant_id)
-                labels[i, user_pos +1: assistant_pos] = input_ids[i, user_pos +1: assistant_pos] 
+                labels[i, user_pos +1: assistant_pos + 1] = input_ids[i, user_pos +1: assistant_pos + 1] 
 
         data_dict["labels"] = labels
         batch_size, seq_len = input_ids.shape
