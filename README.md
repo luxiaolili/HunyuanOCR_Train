@@ -19,11 +19,17 @@ HunyuanOCR 是腾讯推出的多模态 OCR 模型，具备强大的图文理解�
 
 ### 安装步骤
 
+
 1. **克隆仓库**
    ```bash
    git clone https://github.com/luxiaolili/HunyuanOCR_Train.git
    cd HunyuanOCR_Train
    ```
+2. **修改官方的HunYuanVLForConditionalGeneration 代码**
+   ###官方的代码forward中没有vit图片的特征需要修改
+   '''
+   
+   '''
 
 2. **数据集**
    ###
